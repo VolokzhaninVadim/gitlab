@@ -1,3 +1,6 @@
+# Gitlab
+![gitlab-logo-100.png](https://about.gitlab.com/images/press/logo/png/gitlab-logo-100.png)
+
 # Docker (Ubuntu)
 ```
 # Install packages for work with net
