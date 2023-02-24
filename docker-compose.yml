@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  web:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: 'volokzhanin.duckdns.org'
+    container_name: gitlab
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://volokzhanin.duckdns.org:8929'
+        gitlab_rails['gitlab_shell_ssh_port'] = 2224
+        gitlab_rails['env'] = {"SSL_CERT_DIR" => "/home/volokzhanin/docker/private_cloud/proxy/certs/"}
+        puma['per_worker_max_memory_mb'] = 3000
+    ports:
+      - '8929:8929'
+      - '2224:22'
+    volumes:
+      - ./config:/etc/gitlab'
+      - ./logs:/var/log/gitlab'
+      - ./data:/var/opt/gitlab'
+    shm_size: '256m'
