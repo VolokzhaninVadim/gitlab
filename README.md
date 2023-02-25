@@ -25,3 +25,13 @@ docker exec -it gitlab gitlab-rake "gitlab:password:reset[root]"
 ```
 sudo openssl rsa -in /home/volokzhanin/docker/private_cloud/proxy/certs/volokzhanin.duckdns.org.key -text > ./volokzhanin.duckdns.org.pem
 ```
+
+# Change gitlab version
+```
+# Get docker_id
+sudo docker ps
+# Execute
+sudo docker stop [container-id]
+sudo docker rm [container-id]
+sudo docker-compose up --build
+```
