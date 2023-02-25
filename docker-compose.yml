@@ -15,7 +15,7 @@ services:
       - '8929:8929'
       - '2224:22'
     volumes:
-      - ./config:/etc/gitlab'
-      - ./logs:/var/log/gitlab'
-      - ./data:/var/opt/gitlab'
+      - './config:/etc/gitlab'
+      - './logs:/var/log/gitlab'
+      - './data:/var/opt/gitlab'
     shm_size: '256m'
