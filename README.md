@@ -1,7 +1,7 @@
 # Gitlab
 ![gitlab-logo-100.png](https://about.gitlab.com/images/press/logo/png/gitlab-logo-100.png)
 
-# Docker (Ubuntu)
+## Docker (Ubuntu)
 ```
 # Install packages for work with net
 sudo apt install net-tools
@@ -16,17 +16,17 @@ sudo apt install docker-ce docker-compose
 sudo usermod -aG docker ${USER}
 ```
 
-# Reset root user pasword
+## Reset root user pasword
 ```
 docker exec -it gitlab gitlab-rake "gitlab:password:reset[root]"
 ```
 
-# Get .pem file from .key file (SSL)
+## Get .pem file from .key file (SSL)
 ```
 sudo openssl rsa -in /home/volokzhanin/docker/private_cloud/proxy/certs/volokzhanin.duckdns.org.key -text > ./volokzhanin.duckdns.org.pem
 ```
 
-# Change gitlab version
+## Change gitlab version
 ```
 # Get docker_id
 sudo docker ps
@@ -35,3 +35,7 @@ sudo docker stop [container-id]
 sudo docker rm [container-id]
 sudo docker-compose up --build
 ```
+
+## Backup
+For backup use [backup.sh](./dns_backup.sh) and [unzip.sh](./unzip.sh).<br>
+[Yandex s3](https://cloud.yandex.ru/docs/storage/tools/s3fs).
