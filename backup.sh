@@ -2,7 +2,7 @@
 
 echo $(date '+%Y-%m-%d %H %M %S') 'Create variables'
 FILE=$(date '+%Y-%m-%d_%H_%M_%S')
-ARCHIVE_TYPE='tgz'
+ARCHIVE_TYPE='zst'
 GPG_TYPE='gpg'
 PROJECT='gitlab'
 DIRECTORY_SOURCE='/home/volokzhanin/server/repos/cloud/'$PROJECT
@@ -13,7 +13,7 @@ GPG_PASSPHRASE=/home/volokzhanin/.gnupg/backup_passphrase
 
 echo $(date '+%Y-%m-%d %H %M %S') 'Create archive'
 tar --create \
-    --gzip \
+    --zstd \
     --file=$DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE \
     --ignore-failed-read \
     --preserve-permissions \
@@ -37,6 +37,6 @@ echo $(date '+%Y-%m-%d %H %M %S') 'Move file'
 mv $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE'.'$GPG_TYPE $DIRECTORY_S3
 
 echo $(date '+%Y-%m-%d %H %M %S') 'Delete files older than n days'
-find $DIRECTORY_S3 -mtime +20 \
+find $DIRECTORY_S3 -mtime +14 \
     -type f \
     -delete
