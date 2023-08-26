@@ -21,11 +21,6 @@ sudo usermod -aG docker ${USER}
 docker exec -it gitlab gitlab-rake "gitlab:password:reset[root]"
 ```
 
-## Get .pem file from .key file (SSL)
-```
-sudo openssl rsa -in /home/volokzhanin/docker/private_cloud/proxy/certs/volokzhanin.duckdns.org.key -text > ./volokzhanin.duckdns.org.pem
-```
-
 ## Change gitlab version
 ```
 # Get docker_id
