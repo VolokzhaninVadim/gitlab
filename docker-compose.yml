@@ -10,9 +10,9 @@ services:
         external_url 'http://volokzhanin.duckdns.org:8929'
         gitlab_rails['gitlab_shell_ssh_port'] = 2224
         puma['per_worker_max_memory_mb'] = 3000
-    ports:
+    # ports:
     #   - '8929:8929'
-      - '2224:22'
+    #   - '2224:22'
     volumes:
       - '/home/volokzhanin/server/repos/cloud/gitlab/config:/etc/gitlab'
       - '/home/volokzhanin/server/repos/cloud/gitlab/logs:/var/log/gitlab'
